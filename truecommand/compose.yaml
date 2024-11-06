@@ -1,0 +1,24 @@
+name: Truecommand
+services:
+  truecommand:
+    image: ghcr.io/ixsystems/truecommand:latest
+    #image: ixsystems/truecommand:latest
+    ports:
+      - '9080:80'
+      - '9443:443'
+    volumes:
+      - ./data:/data
+x-notes: |
+  TrueCommand Docker Container
+  from https://github.com/styliteag/Notes/truecommand/
+x-portals:
+  - host: 0.0.0.0
+    name: Web UI http
+    path: /
+    port: 9080
+    scheme: http
+  - host: 0.0.0.0
+    name: Web UI https
+    path: /
+    port: 9443
+    scheme: https
